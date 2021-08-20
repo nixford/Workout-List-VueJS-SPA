@@ -1,7 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <h1>Workout List</h1>
   </div>
   <router-view/>
 </template>
@@ -15,16 +14,19 @@
   color: #2c3e50;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  // maybe set picture for background
+}
+
 #nav {
-  padding: 30px;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.text-center {
+  text-align: center;
 }
 </style>
