@@ -13,4 +13,9 @@
   text-align: center;
   color: #2c3e50;  
 }
+#nav {
+  padding: 30px;
+  color: #2c3e50;
+  font-weight: 800;  
+}
 </style>
