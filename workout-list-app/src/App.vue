@@ -14,7 +14,7 @@
   color: #2c3e50;  
 }
 #nav {
-  padding: 30px;
+  margin: 3% 0% 0% 0%;
   color: #2c3e50;
   font-weight: 800;  
 }

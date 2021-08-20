@@ -1,3 +1,5 @@
+// Set example data
+
 const workouts = [
     {
         id: 1,

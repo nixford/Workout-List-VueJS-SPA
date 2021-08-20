@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <img alt="Workout background" src="../assets/exercises.jpg"/>    
+    <img alt="Workout background" src="../assets/exercises.jpg"/> 
+    <router-link to="/create" tag="button">
+      <button class="btn-add">ADD WORKOUT</button>   
+    </router-link>    
     <Workout 
       :workouts="workouts"
     />
@@ -37,6 +40,15 @@ img {
   right: 0;
   position: absolute;
   z-index: -1;   
+}
+
+.btn-add {
+  height: 50px;
+  width: 160px;
+  border-radius: 12px;
+  background-color: green;
+  color: white;
+  font-weight: 800;
 }
 
 </style>
