@@ -26,8 +26,9 @@
             <span>Sets count: {{e.sets}} </span>
           </p>
         </div>
-        <button submit.prevent @click="save" class="btn-save">SAVE WORKOUT</button> 
+        
     </form>
+    <button @click="save" class="btn-save">SAVE WORKOUT</button> 
 </template>
 
 <script>
@@ -57,16 +58,17 @@ export default {
       this.excersiceName = '';
       this.repeats = null;
       this.sets = null;
+    },
+    save() {
+      let workout = {
+        id: uniqueId(),
+        workoutType: this.workoutType,
+        exercises: this.exercises,
+      }
+      this.$store.commit('addToList', workout);
+      this.$router.push('/')
     }
-  },
-  save() {
-    let workout = {
-      workoutType: this.workoutType,
-
-    }
-
-    this.$store.commit('addToList', workout);
-  }
+  },  
 }
 </script>
 

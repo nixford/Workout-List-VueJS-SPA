@@ -14,7 +14,7 @@
         />
         <div class="buttons-container">
           <button class="btn-update">UPDATE WORKOUT</button>
-          <button class="btn-remove">REMOVE WORKOUT</button>
+          <button @click="remove(workout.id)" class="btn-remove">REMOVE WORKOUT</button>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      workouts: workouts,
+      workouts: this.$store.state.workouts,
     };
   },
   methods: {
@@ -45,8 +45,22 @@ export default {
       if (!isThereExercises) {
         this.workouts[i].inactive = true;
       }   
+    },
+    save() {
+     workouts.forEach(w => {
+       this.$store.commit('addToList', w);
+     });           
+    },
+    remove(wId) {
+      this.$store.commit('removeFromList', wId);
     }
-  }
+  },
+  mounted() {   
+    console.log(this.$store.state.workouts)
+    if (this.$store.state.workouts.length === 0) {      
+      this.save();
+    }   
+  },
 };
 </script>
 

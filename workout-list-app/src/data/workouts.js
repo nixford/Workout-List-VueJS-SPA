@@ -17,7 +17,7 @@ const workouts = [
                 excersiceName: 'Pull-ups',
                 repeats: 10,
                 sets: 3,
-                isCompleted: true,
+                isCompleted: false,
             },
             { 
                 id: 3,  
