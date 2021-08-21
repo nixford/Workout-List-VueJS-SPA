@@ -57,15 +57,12 @@ export default {
         index
       }
 
-      this.$emit('statusWorkout', eventIndexObj)
-        
-      // console.log(this.workout.exercises[index].isCompleted)
-      // console.log(event)
+      this.$emit('statusWorkout', eventIndexObj);
     },      
   },    
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 
 </style>
