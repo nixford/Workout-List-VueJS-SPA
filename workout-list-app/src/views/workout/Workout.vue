@@ -1,8 +1,17 @@
 <template>
   <div class="workout-wrapper">
     <div class="workout-container">
-      <div class="workout-current" v-for="(workout, i) in workouts" :key="i">
-        <Exercise :workout="workout" />
+      <div class="workout-current" 
+        :class="{
+          'inactive': workout.inactive === true,
+        }"
+        v-for="(workout, i) in workouts" 
+        :key="i"
+      >
+        <Exercise 
+          :workout="workout" 
+          @statusWorkout="updateStatus($event, i)"
+        />
         <div class="buttons-container">
           <button class="btn-update">UPDATE WORKOUT</button>
           <button class="btn-remove">REMOVE WORKOUT</button>
@@ -14,8 +23,8 @@
 
 <script>
 import Exercise from "./Exercise.vue";
+import workouts from '../../data/workouts.js';
 export default {
-  props: ["workouts"],
   components: {
     Exercise,
   },
@@ -23,10 +32,20 @@ export default {
   },
   data() {
     return {
-      inactive: false,
+      workouts: workouts,
     };
   },
   methods: {
+    updateStatus(event, i) {     
+      this.workouts[i].exercises[event.index].isCompleted = event.event;
+      this.workouts[i].inactive = false;
+
+      let isThereExercises = this.workouts[i].exercises.some(e => e.isCompleted === false);      
+
+      if (!isThereExercises) {
+        this.workouts[i].inactive = true;
+      }   
+    }
   }
 };
 </script>

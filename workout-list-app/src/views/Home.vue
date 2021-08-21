@@ -4,15 +4,13 @@
     <router-link to="/create" tag="button">
       <button class="btn-add">ADD WORKOUT</button>   
     </router-link>    
-    <Workout 
-      :workouts="workouts"
-    />
+    <Workout />
   </div>
 </template>
 
 <script>
 import Workout from '../views/workout/Workout.vue';
-import workouts from '../data/workouts.js';
+
 export default {
   name: 'Home',
   components: {
@@ -20,7 +18,6 @@ export default {
   },
   data() {
     return {
-      workouts: workouts,
     }
   }
 }

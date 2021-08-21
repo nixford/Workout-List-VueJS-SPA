@@ -1,10 +1,7 @@
 <template>
   <h3 class="workout-type">{{ workoutTypeLimitedLenght }}:</h3>
   <div
-    class="exercise-current"
-    :class="{
-      inactive: '...',
-    }"
+    class="exercise-current"    
     v-for="(exercise, index) in workout.exercises"
     :key="index"
   >
@@ -30,7 +27,7 @@
           :title="''"
           :toggled="exercise.isCompleted"
           :darkTheme="true"
-          @toggle="setStatus($event, exercise)"
+          @toggle="setStatus($event, index)"
         />
       </span>
     </div>
@@ -54,10 +51,16 @@ export default {
     }
   },
   methods: {
-    setStatus(event) {
-      this.workout;
+    setStatus(event, index) {
+      let eventIndexObj = {
+        event,
+        index
+      }
+
+      this.$emit('statusWorkout', eventIndexObj)
         
-      console.log(event)
+      // console.log(this.workout.exercises[index].isCompleted)
+      // console.log(event)
     },      
   },    
 }
