@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Exercise from "./Exercise.vue";
+import Exercise from "../../components/Exercise.vue";
 import workouts from '../../data/workouts.js';
 export default {
   components: {

@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import Slider from "../../../node_modules/vue-toggle-component";
+import Slider from "../../node_modules/vue-toggle-component";
 export default {  
   props: ['workout'],
   components: {
