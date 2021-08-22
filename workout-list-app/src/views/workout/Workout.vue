@@ -13,7 +13,6 @@
           @statusWorkout="updateStatus($event, i)"
         />
         <div class="buttons-container">
-          <button class="btn-update">UPDATE WORKOUT</button>
           <button @click="remove(workout.id)" class="btn-remove">REMOVE WORKOUT</button>
         </div>
       </div>
@@ -29,6 +28,8 @@ export default {
     Exercise,
   },
   computed: {
+  },
+  watch: {
   },
   data() {
     return {
@@ -55,11 +56,10 @@ export default {
       this.$store.commit('removeFromList', wId);
     }
   },
-  mounted() {   
-    console.log(this.$store.state.workouts)
-    if (this.$store.state.workouts.length === 0) {      
-      this.save();
-    }   
+  mounted() { 
+    if (window.localStorage.getItem('workouts') === null) {    
+      this.save();    
+    }
   },
 };
 </script>
@@ -124,7 +124,7 @@ export default {
 
 .buttons-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 15px;
   width: 90%;
   margin: auto;

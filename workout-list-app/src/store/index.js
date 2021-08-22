@@ -6,7 +6,7 @@ function updateLocalStorage(workouts) {
 
 export default createStore({
   state: {
-    workouts: []
+    workouts: JSON.parse(window.localStorage.getItem('workouts')) || [],
   },
   mutations: {
     addToList(state, workout){

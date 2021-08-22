@@ -30,6 +30,9 @@
           @toggle="setStatus($event, index)"
         />
       </span>
+      <span>
+        <button class="btn-delete-exercise"></button>
+      </span>
     </div>
   </div>
 </template>

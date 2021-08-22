@@ -6,15 +6,20 @@
         </div>  
         <div class="add-exercise-btn">
           <h3>Add exercises:</h3>     
-          <button submit.prevent @click="addExercise" class="btn-add-exercise">ADD EXERCISE</button> 
         </div>        
-        <div class="input-row-exercises">    
-          <label>Exercise name</label>      
-          <input type="text" v-model="excersiceName">
-          <label>Repets count</label>
-          <input type="number" v-model="repeats">
-          <label>Sets count</label>
-          <input type="number" v-model="sets">
+        <div class="input-row-exercises"> 
+          <div>
+            <label>Exercise name:</label>      
+            <input type="text" v-model="excersiceName">
+          </div>   
+          <div>
+            <label>Repets count:</label>
+            <input type="number" v-model="repeats">
+          </div>
+          <div> 
+            <label>Sets count:</label>
+            <input type="number" v-model="sets">
+          </div>        
         </div>
         <div v-for="(e, i) in exercises" :key="e.id"> 
           <p>
@@ -26,7 +31,7 @@
             <span>Sets count: {{e.sets}} </span>
           </p>
         </div>
-        
+        <button submit.prevent @click="addExercise" class="btn-add-exercise">ADD EXERCISE</button> 
     </form>
     <button @click="save" class="btn-save">SAVE WORKOUT</button> 
 </template>
@@ -66,7 +71,7 @@ export default {
         exercises: this.exercises,
       }
       this.$store.commit('addToList', workout);
-      this.$router.push('/')
+      this.$router.push('/');
     }
   },  
 }
@@ -87,6 +92,10 @@ export default {
   margin-top: 3%;
 }
 
+input {
+  height: 25px;
+}
+
 .add-exercise-btn {
   display: flex;
   flex-direction: row;
@@ -105,12 +114,20 @@ export default {
   background-color: orange;
   color: white;
   font-weight: 700;
+  margin-top: 3%;
+}
+
+.input-row-exercises {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 80%;
 }
 
 .btn-save {
   margin-top: 5%;
   width: 50%;
-  height: 30px;
+  height: 50px;
   border-radius: 12px;
   background-color: green;
   color: white;
