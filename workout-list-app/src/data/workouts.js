@@ -3,7 +3,7 @@
 const workouts = [
     {
         id: 123456789,
-        workoutType: 'Flexibility12345678901234567890',
+        workoutType: 'Flexibility',
         exercises: [
             {   
                 id: 1,
