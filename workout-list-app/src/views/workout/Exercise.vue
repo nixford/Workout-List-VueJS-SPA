@@ -31,7 +31,7 @@
         />
       </span>
       <span>
-        <button class="btn-delete-exercise"></button>
+        <button @click="deleteExercise(exercise.id)" class="btn-delete-exercise">DELETE</button>
       </span>
     </div>
   </div>
@@ -61,7 +61,10 @@ export default {
       }
 
       this.$emit('statusWorkout', eventIndexObj);
-    },      
+    },
+    deleteExercise(eId) {
+      this.$emit('deleteExercise', eId)
+    }      
   },    
 }
 </script>

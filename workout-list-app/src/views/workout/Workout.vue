@@ -11,6 +11,7 @@
         <Exercise 
           :workout="workout" 
           @statusWorkout="updateStatus($event, i)"
+          @deleteExercise="deleteExercise($event, workout.id)"
         />
         <div class="buttons-container">
           <button @click="remove(workout.id)" class="btn-remove">REMOVE WORKOUT</button>
@@ -54,6 +55,13 @@ export default {
     },
     remove(wId) {
       this.$store.commit('removeFromList', wId);
+    },
+    deleteExercise(eId, wId) {     
+      let idObj = {
+        eId,
+        wId
+      }
+      this.$store.commit('deleteExercise', idObj)
     }
   },
   mounted() { 
@@ -148,5 +156,15 @@ export default {
 .btn-update {
   background-color: white;
   color: #44a9f9;
+}
+
+.btn-delete-exercise {
+  background-color: grey;
+  color: white;
+  width: 80px;
+  height: 30px;
+  border-radius: 12px;
+  font-weight: 500;
+  margin-right: 10px;
 }
 </style>
