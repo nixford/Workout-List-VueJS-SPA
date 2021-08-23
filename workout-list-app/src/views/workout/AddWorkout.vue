@@ -21,7 +21,7 @@
             <input type="number" v-model="sets">
           </div>        
         </div>
-        <div v-for="(e, i) in exercises" :key="e.id"> 
+        <div class="exercises-div" v-for="(e, i) in exercises" :key="e.id"> 
           <p>
             <span class="exercises-count">{{i + 1}}. </span>
             <span>Exercise name: {{e.excersiceName}} </span>

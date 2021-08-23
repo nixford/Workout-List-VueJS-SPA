@@ -1,21 +1,17 @@
-import { mount } from '@vue/test-utils';
-// import { shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import AddWorkout from '../../src/views/workout/AddWorkout.vue';
 
 describe('AddWorkout.vue', () => {
 
-  test('initial length is zero', () => {    
-    // Arrange
-    const wrapper = mount(AddWorkout); 
+  const wrapper = shallowMount(AddWorkout); 
 
+  test('initial length is zero', () => { 
     // Act
     expect(wrapper.vm.$data.exercises.length).toBe(0);
   })
 
-
   test('exercise is added to array when add button is clicked', () => {    
     // Arrange
-    const wrapper = mount(AddWorkout); 
     const button = wrapper.find('button');
 
     // Act
@@ -27,7 +23,6 @@ describe('AddWorkout.vue', () => {
 
   test('exercise is listed on the page when add button is clicked', async () => {  
     // Arrange  
-    const wrapper = mount(AddWorkout); 
     const button = wrapper.find('button');
 
     // Act
@@ -35,5 +30,13 @@ describe('AddWorkout.vue', () => {
 
     // Assert
     expect(wrapper.find('p').text()).toContain("1.");
-  }) 
+  })
+
+  test('snapshot renders correctly', () => {  
+    expect(wrapper.element).toMatchSnapshot();
+  })
+  
+  test('snapshot contains h1 tag', () => {    
+    expect('<h1>Workout List App</h1>').toMatchSnapshot();
+  })
 })
