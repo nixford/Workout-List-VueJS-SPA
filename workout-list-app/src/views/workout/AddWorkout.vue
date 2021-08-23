@@ -23,7 +23,7 @@
         </div>
         <div v-for="(e, i) in exercises" :key="e.id"> 
           <p>
-            <span>{{i + 1}}. </span>
+            <span class="exercises-count">{{i + 1}}. </span>
             <span>Exercise name: {{e.excersiceName}} </span>
             <span> - </span>
             <span>Repets count: {{e.repeats}} </span>
