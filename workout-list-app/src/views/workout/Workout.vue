@@ -157,14 +157,4 @@ export default {
   background-color: white;
   color: #44a9f9;
 }
-
-.btn-delete-exercise {
-  background-color: grey;
-  color: white;
-  width: 80px;
-  height: 30px;
-  border-radius: 12px;
-  font-weight: 500;
-  margin-right: 10px;
-}
 </style>

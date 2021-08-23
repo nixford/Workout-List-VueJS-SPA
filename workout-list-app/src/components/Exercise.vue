@@ -31,7 +31,11 @@
         />
       </span>
       <span>
-        <button @click="deleteExercise(exercise.id)" class="btn-delete-exercise">DELETE</button>
+        <el-button 
+          class="btn-delete-exercise"
+          @click="deleteExercise(exercise.id)" 
+          >DELETE          
+        </el-button>
       </span>
     </div>
   </div>
@@ -69,6 +73,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss" >
+.btn-delete-exercise {
+  background-color: grey;
+  color: white;
+  width: 80px;
+  height: 30px;
+  border-radius: 12px;
+  font-weight: 500;
+  margin-right: 36px;
+  padding: 11%;
+  cursor: pointer;
+}
 </style>
