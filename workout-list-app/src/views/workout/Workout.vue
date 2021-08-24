@@ -10,8 +10,7 @@
       >
         <Exercise 
           :workout="workout" 
-          @statusWorkout="updateStatus($event, i)"
-          @deleteExercise="deleteExercise($event, workout.id)"
+          @status-workout="updateStatus($event, i)"
         />
         <div class="buttons-container">
           <button @click="remove(workout.id)" class="btn-remove">REMOVE WORKOUT</button>
@@ -60,14 +59,6 @@ export default {
     remove(wId) {
       WorkoutRouter.delete(wId);
     },
-    deleteExercise(eId, wId) {     
-      let idObj = {
-        eId,
-        wId,
-        isDeleteExercise: true,
-      }
-      WorkoutRouter.delete(idObj);
-    }
   },
   mounted() { 
     if (window.localStorage.getItem('workouts') === null) {    

@@ -31,11 +31,11 @@
         />
       </span>
       <span>
-        <el-button 
+        <button 
           class="btn-delete-exercise"
-          @click="deleteExercise(exercise.id)" 
+          @click="deleteExercise(exercise.id, workout.id)" 
           >DELETE          
-        </el-button>
+        </button>
       </span>
     </div>
   </div>
@@ -43,8 +43,10 @@
 
 <script>
 import Slider from "../../node_modules/vue-toggle-component";
+import WorkoutRouter from '../../server/routes/workout.js';
 export default {  
   props: ['workout'],
+  emits: ["status-workout"],
   components: {
     Slider,
   },
@@ -64,10 +66,15 @@ export default {
         index
       }
 
-      this.$emit('statusWorkout', eventIndexObj);
+      this.$emit('status-workout', eventIndexObj);
     },
-    deleteExercise(eId) {
-      this.$emit('deleteExercise', eId)
+    deleteExercise(eId, wId) {
+      let idObj = {
+        eId,
+        wId,
+        isDeleteExercise: true,
+      }
+      WorkoutRouter.delete(idObj);
     }      
   },    
 }
@@ -82,7 +89,6 @@ export default {
   border-radius: 12px;
   font-weight: 500;
   margin-right: 36px;
-  padding: 11%;
   cursor: pointer;
 }
 </style>
