@@ -24,6 +24,7 @@
 <script>
 import Exercise from "../../components/Exercise.vue";
 import workouts from '../../data/workouts.js';
+import WorkoutRouter from '../../../server/routes/workout.js';
 export default {
   components: {
     Exercise,
@@ -34,10 +35,13 @@ export default {
   },
   data() {
     return {
-      workouts: this.$store.state.workouts,
+      workouts: {},
     };
   },
   methods: {
+    getWorkout() {
+      this.workouts = WorkoutRouter.get();      
+    },
     updateStatus(event, i) {     
       this.workouts[i].exercises[event.index].isCompleted = event.event;
       this.workouts[i].inactive = false;
@@ -50,24 +54,26 @@ export default {
     },
     save() {
      workouts.forEach(w => {
-       this.$store.commit('addToList', w);
+       WorkoutRouter.post(w);
      });           
     },
     remove(wId) {
-      this.$store.commit('removeFromList', wId);
+      WorkoutRouter.delete(wId);
     },
     deleteExercise(eId, wId) {     
       let idObj = {
         eId,
-        wId
+        wId,
+        isDeleteExercise: true,
       }
-      this.$store.commit('deleteExercise', idObj)
+      WorkoutRouter.delete(idObj);
     }
   },
   mounted() { 
     if (window.localStorage.getItem('workouts') === null) {    
-      this.save();    
+      this.save();   
     }
+    this.getWorkout();
   },
 };
 </script>
