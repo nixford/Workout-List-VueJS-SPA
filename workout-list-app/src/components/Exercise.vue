@@ -80,7 +80,37 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
+.exercise-current,
+.exercise-slider {
+  display: flex;
+}
+
+.exercise-current {
+  margin-left: 30px;
+  align-items: center;
+}
+
+.exercise-text {
+  flex-basis: 65%;
+  text-align: start;
+
+  &.completed {
+    text-decoration: line-through 3px solid;
+  }
+}
+
+.exercise-slider {
+  flex-basis: 35%;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.result-slider {
+  margin-right: 10px;
+}
+
 .btn-delete-exercise {
   background-color: grey;
   color: white;

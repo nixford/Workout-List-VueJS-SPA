@@ -69,12 +69,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .workout-wrapper,
 .workout-container,
-.workout-current,
-.exercise-current,
-.exercise-slider {
+.workout-current {
   display: flex;
 }
 
@@ -100,31 +98,6 @@ export default {
   &.inactive {
     background-color: #515e6e;
   }
-}
-
-.exercise-current {
-  margin-left: 30px;
-  align-items: center;
-}
-
-.exercise-text {
-  flex-basis: 65%;
-  text-align: start;
-
-  &.completed {
-    text-decoration: line-through 3px solid;
-  }
-}
-
-.exercise-slider {
-  flex-basis: 35%;
-  justify-content: flex-end;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.result-slider {
-  margin-right: 10px;
 }
 
 .buttons-container {
