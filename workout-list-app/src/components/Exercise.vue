@@ -76,7 +76,7 @@ export default {
       }
       WorkoutRouter.delete(idObj);
     }      
-  },    
+  },  
 }
 </script>
 
